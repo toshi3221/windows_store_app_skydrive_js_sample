@@ -50,7 +50,7 @@
     // Populate settings pane and tie commands to settings flyouts.
     WinJS.Application.onsettings = function (e) {
         e.detail.applicationcommands = {
-            "accountsDiv": { href: "/pages/settingsAccountUI/settingsFlyoutUI.html", title: "Accounts" },
+            "accountsDiv": { href: "/pages/settingsAccountUI/settingsFlyoutUI.html", title: "アカウント" },
                };
         WinJS.UI.SettingsFlyout.populateSettings(e);
     }

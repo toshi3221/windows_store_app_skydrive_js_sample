@@ -49,6 +49,7 @@
             listView.element.focus();
 
             WL.Event.subscribe("auth.login", onLoginComplete);
+            WL.Event.subscribe("auth.logout", onLogoutComplete);
             WL.init();
 
             WL.login({
@@ -79,11 +80,14 @@
 
     });
 
-      function onLoginComplete() {
-        var session = WL.getSession();
-        if (!session.error) {
-            signedInUser();
-        }
+    function onLoginComplete() {
+      var session = WL.getSession();
+      if (!session.error) {
+        signedInUser();
+      }
+    };
+    function onLogoutComplete() {
+        nav.navigate("/pages/groupedItems/groupedItems.html");
     };
     function signedInUser() {
         WL.api({
