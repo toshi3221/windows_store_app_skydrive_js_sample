@@ -96,7 +96,7 @@
         }
         ).then(
         function (result) {
-            document.getElementById("meName").innerText = "Welcome, " + result.name;
+            $("#meName").text("Welcome, " + result.name);
             App.username = result.name;
             getUserPicture();
             getUserPhotos();
@@ -108,8 +108,8 @@
             path: "me/picture",
             method: "get"
         }).then(function (result) {
-            document.getElementById("meImg").src = result.location;
-            document.getElementById("meImg").style.visibility = "visible";
+            $("#meImg").attr("src", result.location);
+            $("#meImg").css("visibility", "visible");
         });
         
       

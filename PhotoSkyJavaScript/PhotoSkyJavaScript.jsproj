@@ -70,6 +70,7 @@
     <Content Include="default.html" />
     <Content Include="pages\settingsAccountUI\settingsFlyout.js" />
     <Content Include="pages\settingsAccountUI\settingsFlyoutUI.html" />
+    <Content Include="Scripts\jquery-1.8.3.js" />
     <None Include="PhotoSkyJavaScript_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
