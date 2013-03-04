@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" StartPage="default.html">
-      <VisualElements DisplayName="PhotoSkyJavaScript" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="PhotoSkyJavaScript" ForegroundText="light" BackgroundColor="#464646">
+      <VisualElements DisplayName="PhotoSkyJavaScript" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="PhotoSkyJavaScript" ForegroundText="light" BackgroundColor="#3344aa">
         <DefaultTile ShowName="allLogos" />
         <SplashScreen Image="images\splashscreen.png" />
       </VisualElements>
