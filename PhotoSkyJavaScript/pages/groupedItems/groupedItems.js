@@ -48,16 +48,31 @@
         var albums_path = "/me/albums";
         WL.api({ path: albums_path, method: "GET" }).then(function (response) {
             var items = response.data;
-            var path = items[0].id + "/files";
-            WL.api({ path: path, method: "GET" }).then(function (response) {
-                var items = response.data;
-                var photo = items[0];
-                var $photo = $("#photo_img");
-                $photo.bind("load", function () {
-                    $(this).fadeIn(1500);
+            var sunday_sky_item = null;
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].name == "SundaySky") {
+                    sunday_sky_item = items[i];
+                    break;
+                }
+            }
+            if (sunday_sky_item) {
+                var path = sunday_sky_item.id + "/files";
+
+                WL.api({ path: path, method: "GET" }).then(function (response) {
+                    var items = response.data;
+                    var updated_time_sorted_items = items.sort(function (a, b) {
+                        if (a.updated_time < b.updated_time) return 1;
+                        if (a.updated_time > b.updated_time) return -1;
+                        return 0;
+                    });
+                    var photo = updated_time_sorted_items[0];
+                    var $photo = $("#photo_img");
+                    $photo.bind("load", function () {
+                        $(this).fadeIn(1500);
+                    });
+                    $photo.width($(window).width()).attr("src", photo.source);
                 });
-                $photo.width($(window).width()).attr("src", photo.source);
-            });
+            }
         });
     };
     function getUserPicture() {
